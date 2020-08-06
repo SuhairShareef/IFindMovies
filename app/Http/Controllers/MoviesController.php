@@ -65,7 +65,13 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        //
+        // Sending a request for popular movies section 
+        $movie = Http::withToken(config('services.moviesAPI.token'))->get(config('services.moviesAPI.baseURL').'movie/'.$id.'?append_to_response=credits,videos,images')->json();
+
+        dump ($movie);
+        return view('show', [
+            'movie' => $movie,
+        ]);
     }
 
     /**
