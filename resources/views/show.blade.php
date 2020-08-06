@@ -62,17 +62,19 @@
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Cast</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-4">
-                @for ($i = 0; $i < 5; $i++)
-                    <div class="mt-8">
-                        <a href="/movie">
-                            <img src="/img/Song-Kang-ho.jpg" class="hover:opacity-75 transition ease-in-out duration-150" alt="Parasite">
-                        </a>
-                        <div class="mt-2">
-                            <a href="/character" class="text-md mt-2 hover:text-gray-300">Song Kang-ho</a>
-                            <div class="text-gray-400 text-sm"><span>Ki Taek</span></div>
+                @foreach ($movie['credits']['cast'] as $cast)
+                    @if ($loop->index < 5)
+                        <div class="mt-8">
+                            <a href="/people/{{ $cast['id'] }}">
+                                <img src="https://image.tmdb.org/t/p/w500/.{{$cast['profile_path']}}" class="hover:opacity-75 transition ease-in-out duration-150" alt="Parasite">
+                            </a>
+                            <div class="mt-2">
+                                <a href="/people/{{ $cast['id'] }}" class="text-md mt-2 hover:text-gray-300">{{ $cast['character'] }}</a>
+                                <div class="text-gray-400 text-sm"><span>{{ $cast['name'] }}</span></div>
+                            </div>
                         </div>
-                    </div>
-                @endfor
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -83,16 +85,15 @@
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Images</h2>
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-4">
-                @for ($i = 0; $i < 3; $i++)
-                    <div class="mt-8">
-                        <a href="/movie">
-                            <img src="/img/ParasiteCannes.jpg" class="hover:opacity-75 transition ease-in-out duration-150" alt="Parasite">
-                        </a>
-                        <div class="mt-2">
-                            <a href="/character" class="text-md mt-2 hover:text-gray-300">Song Kang-ho</a>
-                            <div class="text-gray-400 text-sm"><span>Ki Taek</span></div>
+                @foreach ($movie['images']['backdrops'] as $image)
+                    @if ($loop->index < 6)
+                        <div class="mt-8 mb-2">
+                            <img src="https://image.tmdb.org/t/p/w500/.{{$image['file_path']}}" alt="Parasite">
                         </div>
-                    </div>
+                    @endif
+                @endforeach
+                @for ($i = 0; $i < 3; $i++)
+                    
                 @endfor
             </div>
         </div>

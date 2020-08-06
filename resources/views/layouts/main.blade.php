@@ -20,7 +20,7 @@
                     </a>
                 </li>
                 <li class="md:ml-16 mb-4 lg:mb-0">
-                    <a href="#" class="hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150">Movies</a>
+                    <a href="/" class="hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150">Movies</a>
                 </li>
                 <li class="md:ml-6 mb-4 lg:mb-0">
                     <a href="#" class="hover:text-gray-300 hover:opacity-75 transition ease-in-out duration-150">TV Shows</a>
