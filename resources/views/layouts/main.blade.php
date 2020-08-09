@@ -7,6 +7,7 @@
     <title>Movies App</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
+    <livewire:styles />
     
 </head>
 <body class="font-sans bg-gray-900 text-white">
@@ -46,5 +47,6 @@
         </div>
     </nav>
     @yield('content')
+    <livewire:scripts />
 </body>
 </html>
