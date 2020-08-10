@@ -11,7 +11,14 @@
                 <ul>
                     @foreach ($searchResults as $movie)
                         <li class="border-b border-gray-700">
-                            <a href="{{ route('movies.show', $movie['id']) }}" class="block hover:bg-gray-700 px-3 py-3">{{ $movie['title'] }}</a>
+                            <a href="{{ route('movies.show', $movie['id']) }}" class="block hover:bg-gray-700 px-3 py-3 flex items-center">
+                                @if ($movie['poster_path'] == null)
+                                    <img src="/img/no_image.jpg" class="w-8">
+                                @else
+                                    <img src="http://image.tmdb.org/t/p/w92/{{ $movie['poster_path'] }}" class="w-8">
+                                @endif 
+                                <span class="ml-4">{{ $movie['title'] }}</span>
+                            </a>
                         </li>
                     @endforeach
                 </ul>

@@ -5,7 +5,12 @@
     <div class="movie-info border-b border-gray-800">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row justify-between">
             <div class="flex-none">
-                <img src="https://image.tmdb.org/t/p/w500/.{{$movie['poster_path']}}" alt="{{ $movie['original_title'] }}" class="w-64 md:w-96 sm:w-96">
+                @if ($movie['poster_path'] == null)
+                    <img src="/img/no_image.jpg" alt="{{ $movie['original_title'] }}" class="w-64 md:w-96 sm:w-96">
+                @else
+                    <img src="https://image.tmdb.org/t/p/w500/.{{$movie['poster_path']}}" alt="{{ $movie['original_title'] }}" class="w-64 md:w-96 sm:w-96">
+                @endif 
+                
             </div>
             <div class="md:ml-24">
                 <h2 class="text-4xl font-semibold">{{ $movie['title'] }}</h2>
