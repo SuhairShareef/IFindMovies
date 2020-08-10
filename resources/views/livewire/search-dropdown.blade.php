@@ -4,6 +4,12 @@
     type="text" 
     class="text-sm bg-gray-800 rounded-full lg:w-64 md:w-50 sm:w-30 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline" 
     placeholder="Search"
+    x-ref="search"
+    @keydown.window="
+        if (event.keyCode === 111) {
+            event.preventDefault();
+            $refs.search.focus();
+        }"
     @focus="isOpen = true"
     @keydown="isOpen = true"
     @keydown.escape.window="isOpen = false"
