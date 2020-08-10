@@ -66,7 +66,11 @@
                     @if ($loop->index < 5)
                         <div class="mt-8">
                             <a href="/people/{{ $cast['id'] }}">
-                                <img src="https://image.tmdb.org/t/p/w500/.{{$cast['profile_path']}}" class="hover:opacity-75 transition ease-in-out duration-150" alt="Parasite">
+                                @if ($cast['profile_path'] == null)
+                                    <img src="/img/no_image.jpg" class="hover:opacity-75 transition ease-in-out duration-150">
+                                @else
+                                    <img src="https://image.tmdb.org/t/p/w500/.{{$cast['profile_path']}}" class="hover:opacity-75 transition ease-in-out duration-150"> 
+                                @endif 
                             </a>
                             <div class="mt-2">
                                 <a href="/people/{{ $cast['id'] }}" class="text-md mt-2 hover:text-gray-300">{{ $cast['character'] }}</a>
@@ -88,7 +92,7 @@
                 @foreach ($movie['images']['backdrops'] as $image)
                     @if ($loop->index < 6)
                         <div class="mt-8 mb-2">
-                            <img src="https://image.tmdb.org/t/p/w500/.{{$image['file_path']}}" alt="Parasite">
+                            <img src="https://image.tmdb.org/t/p/w500/.{{$image['file_path']}}">
                         </div>
                     @endif
                 @endforeach
