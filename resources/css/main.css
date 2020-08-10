@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.lato {
-    font-family: 'Lato', sans-serif;
+.spinner {
+    position: absolute;
 }

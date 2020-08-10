@@ -17923,8 +17923,8 @@ video {
   }
 }
 
-.lato {
-  font-family: 'Lato', sans-serif;
+.spinner {
+  position: absolute;
 }
 
 @media (min-width: 640px) {

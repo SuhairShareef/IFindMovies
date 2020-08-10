@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <livewire:styles />
+
+    {{-- Alpine JS CDN script --}}
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     
 </head>
 <body class="font-sans bg-gray-900 text-white">
