@@ -14,7 +14,7 @@
 
     @if (strlen($search) > 2)
         {{-- The search results section --}}
-        <div class="absolute bg-gray-800 rounded text-sm w-64 mt-4" 
+        <div class="z-50 absolute bg-gray-800 rounded text-sm w-64 mt-4" 
         x-show="isOpen"
         @keydown.escape.window="isOpen = false"
         >
