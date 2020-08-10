@@ -30,7 +30,7 @@
                         @foreach ($movie['credits']['crew'] as $crew)
                             @if ($loop->index < 2)
                                 <div>
-                                    <div class="mr-8">{{ $crew['name'] }}</div>
+                                    <div class="mr-20">{{ $crew['name'] }}</div>
                                     <div class="text-sm text gray-400">{{ $crew['job'] }}</div>
                                 </div>
                         @endif
