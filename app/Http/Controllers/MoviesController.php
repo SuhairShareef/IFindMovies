@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\ViewModels\MoviesViewModel;
 
 
 class MoviesController extends Controller
@@ -19,21 +20,14 @@ class MoviesController extends Controller
         $popularMovies = Http::withToken(config('services.moviesAPI.token'))->get(config('services.moviesAPI.baseURL').'movie/popular')->json()['results'];
 
         // Sending a request for genres
-        $genresArray = Http::withToken(config('services.moviesAPI.token'))->get(config('services.moviesAPI.baseURL').'genre/movie/list')->json()['genres'];
-
-        // Mapping genres array
-        $genres = collect($genresArray)->mapWithKeys(function ($genre) {
-            return [$genre['id'] => $genre['name']];
-        });
+        $genres = Http::withToken(config('services.moviesAPI.token'))->get(config('services.moviesAPI.baseURL').'genre/movie/list')->json()['genres'];
 
         // Sending a request for now playing movies section 
         $nowPlayingMovies = Http::withToken(config('services.moviesAPI.token'))->get(config('services.moviesAPI.baseURL').'movie/now_playing')->json()['results'];
 
-        return view('index', [
-            'popularMovies' => $popularMovies,
-            'nowPlayingMovies' => $nowPlayingMovies,
-            'genres' => $genres,
-        ]);
+        $viewModel = new MoviesViewModel($popularMovies, $nowPlayingMovies, $genres);
+
+        return view('index', $viewModel);
     }
 
     /**

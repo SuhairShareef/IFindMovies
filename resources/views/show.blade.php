@@ -38,7 +38,9 @@
                                     <div class="mr-20">{{ $crew['name'] }}</div>
                                     <div class="text-sm text gray-400">{{ $crew['job'] }}</div>
                                 </div>
-                        @endif
+                            @else 
+                                @break
+                            @endif
                         @endforeach
                     </div>
                 </div>
@@ -104,6 +106,8 @@
                                 <div class="text-gray-400 text-sm"><span>{{ $cast['name'] }}</span></div>
                             </div>
                         </div>
+                    @else 
+                        @break
                     @endif
                 @endforeach
             </div>
@@ -117,7 +121,7 @@
             <h2 class="text-4xl font-semibold">Images</h2>
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-4">
                 @foreach ($movie['images']['backdrops'] as $image)
-                    @if ($loop->index < 6)
+                    @if ($loop->index < 9)
                         <div class="mt-8 mb-2">
                             <a 
                                 href="#"
@@ -129,6 +133,8 @@
                                 <img src="https://image.tmdb.org/t/p/w500/.{{$image['file_path']}}">
                             </a>
                         </div>
+                    @else 
+                        @break
                     @endif
                 @endforeach
                 @for ($i = 0; $i < 3; $i++)
