@@ -2,24 +2,28 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '5 19 * * *' # Runs at 12:00 AM UTC every day
+    - cron: '15 19 * * *'  # Runs every day at 12:00 PM UTC
 
 jobs:
-  build:
+  commit:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Configure Git
+      - name: Set up Git
         run: |
-          git config --global user.name 'suhairshareef'
-          git config --global user.email 'suhairshareef1999@gmail.com'
+          git config --global user.name "Your Name"
+          git config --global user.email "your-email@example.com"
 
-      - name: Create and push commit
+      - name: Create commit
         run: |
-          echo "$(date)" >> daily_commit.txt
+          echo "$(date)" > daily-commit.txt
           git add .
-          git commit -m "Daily commit - $(date)"
-          git push
+          git commit -m "Daily commit"
+
+      - name: Push commit
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
